@@ -18,7 +18,7 @@ body{
     background:#0f1f1a;
     color:white;
     overflow:hidden;
-    transition:background 2.5s ease, color 2s ease;
+    
 }
 
 body.light{
@@ -30,19 +30,13 @@ body::before{
     content:"";
     position:fixed;
     inset:0;
-    background:radial-gradient(
-        circle at var(--gift-x,50%) var(--gift-y,50%),
-        rgba(223,245,234,0) 0%,
-        rgba(223,245,234,0) 35%,
-        rgba(223,245,234,1) 100%
-    );
+    background:linear-gradient(135deg,#dff5ea,#f6fffb);
     opacity:0;
+    transition:opacity 2s ease;
     pointer-events:none;
-    transition:opacity 1.8s ease;
     z-index:0;
 }
 
-/* bila gift dibuka */
 body.light::before{
     opacity:1;
 }
@@ -210,13 +204,7 @@ function openGift(){
   pages[i].style.transition="opacity 0.8s ease";
   pages[i].style.opacity=0;
 
-  // 👉 PENTING: bagi browser satu frame dulu
-  requestAnimationFrame(()=>{
-    requestAnimationFrame(()=>{
-      document.body.classList.add('light');
-      startConfetti();
-    });
-  });
+  document.body.classList.add('light');
 
   setTimeout(()=>{
     pages[i].classList.remove('active');
@@ -257,6 +245,7 @@ function startConfetti(){
 
 </body>
 </html>
+
 
 
 
