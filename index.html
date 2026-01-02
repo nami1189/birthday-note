@@ -131,9 +131,9 @@ button{
 .sticker-frame video{
     width:100%;
     height:100%;
-    object-fit:cover;
+    object-fit:cover; /* pastikan video penuh frame */
     display:block;
-    }
+}
     
 
 .sticker-frame{
@@ -193,7 +193,7 @@ button{
 <!-- PAGE 5 -->
 <div class="page">
   <div class="sticker-frame">
-    <video src="page5.mp4" autoplay muted loop></video>
+    <video src="page5.mp4" autoplay muted loop playsinline></video>
   </div>
   <div class="text">
     ayat2 uuuuu
@@ -293,6 +293,7 @@ function startConfetti(){
 
 </body>
 </html>
+
 
 
 
