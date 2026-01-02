@@ -21,25 +21,20 @@ body{
     
 }
 
-body.light{
-    background:linear-gradient(135deg,#dff5ea,#f6fffb);
-    color:#234;
-}
-
-body::before{
-    content:"";
+#lightOverlay{
     position:fixed;
     inset:0;
     background:linear-gradient(135deg,#dff5ea,#f6fffb);
     opacity:0;
-    transition:opacity 2s ease;
     pointer-events:none;
+    transition:opacity 2s ease;
     z-index:0;
 }
 
-body.light::before{
+body.light #lightOverlay{
     opacity:1;
 }
+
 
 /* slow global transition */
 body{
@@ -109,6 +104,8 @@ button{
   Your browser does not support the audio element.
 </audio>
 
+<div id="lightOverlay"></div>
+    
 <!-- CONFETTI -->
 <div class="confetti"></div>
 
@@ -244,6 +241,7 @@ function startConfetti(){
 
 </body>
 </html>
+
 
 
 
