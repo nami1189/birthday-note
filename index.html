@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Happy Birthday Sayang 💚</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    height:100vh;
+    background:#0f1f1a;
+    color:white;
+    overflow:hidden;
+    transition:background 1.5s ease,color 1.5s ease;
+}
+
+body.light{
+    background:linear-gradient(135deg,#dff5ea,#f6fffb);
+    color:#234;
+}
+
+.page{
+    display:none;
+    height:100vh;
+    padding:30px;
+    text-align:center;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+}
+
+.page.active{
+    display:flex;
+}
+
+.sticker{
+    font-size:90px;
+    animation:float 2.5s ease-in-out infinite;
+}
+
+@keyframes float{
+    0%{transform:translateY(0);}
+    50%{transform:translateY(-20px);}
+    100%{transform:translateY(0);}
+}
+
+button{
+    margin-top:25px;
+    padding:12px 35px;
+    border:none;
+    border-radius:30px;
+    background:#9adfc2;
+    color:#144;
+    font-size:16px;
+    cursor:pointer;
+}
+
+.confetti span{
+    position:absolute;
+    width:8px;
+    height:8px;
+    background:#9adfc2;
+    top:-10px;
+    animation:fall 5s linear infinite;
+    opacity:0.7;
+}
+
+@keyframes fall{
+    to{
+        transform:translateY(110vh) rotate(360deg);
+    }
+}
+</style>
+</head>
+
+<body>
+
+<audio id="birthdayAudio" loop>
+  <source src="media/hbd.mp3" type="audio/mp3">
+  Your browser does not support the audio element.
+</audio>
+
+<!-- CONFETTI -->
+<div class="confetti"></div>
+
+<!-- PAGE 1 -->
+<div class="page active">
+  <div class="sticker">💚</div>
+  <h1>haiii </h1>
+  <button onclick="next()">Next</button>
+</div>
+
+<!-- PAGE 2 -->
+<div class="page">
+  <div class="sticker">🎁</div>
+  <h2>I have something for you</h2>
+  <button onclick="openGift()">Buka</button>
+</div>
+
+<!-- PAGE 3 -->
+<div class="page">
+  <div class="sticker">🎂</div>
+  <h2>HAPPY BIRTHDAY </h2>
+  <div class="text">
+   semoga itu ini
+  </div>
+  <button onclick="next()">Next</button>
+</div>
+
+<!-- PAGE 4 -->
+<div class="page">
+  <div class="sticker">💌</div>
+  <div class="text">
+   ayat
+  </div>
+  <button onclick="next()">Next</button>
+</div>
+
+<!-- PAGE 5 -->
+<div class="page">
+  <div class="sticker">😆💚</div>
+  <div class="text">
+    ayat2
+  </div>
+  <button onclick="next()">Next</button>
+</div>
+
+<!-- PAGE 6 -->
+<div class="page">
+  <div class="sticker">🚗🌙</div>
+  <div class="text">
+    ayat2
+  </div>
+  <button onclick="next()">Next</button>
+</div>
+
+<!-- PAGE 7 -->
+<div class="page">
+  <div class="sticker">💖🎂</div>
+  <div class="text">
+    ayat3
+  </div>
+  <button onclick="reset()">End</button>
+</div>
+
+<script>
+let pages = document.querySelectorAll('.page');
+let i = 0;
+const audio = document.getElementById('birthdayAudio');
+
+function next(){
+  pages[i].classList.remove('active');
+  i++;
+  if(i < pages.length){
+    pages[i].classList.add('active');
+  }
+}
+
+function openGift(){
+  // mainkan audio
+  audio.play().catch(()=>console.log("Audio play blocked"));
+
+  // tukar background + glow
+  document.body.classList.add('light');
+
+  // start confetti
+  startConfetti();
+
+  // fade page 2
+  pages[i].style.transition = "opacity 0.8s ease";
+  pages[i].style.opacity = 0;
+
+  // lepas fade habis, tukar page
+  setTimeout(()=>{
+    pages[i].classList.remove('active');
+    pages[i].style.opacity = 1; // reset opacity
+
+    i++;
+    if(i < pages.length){
+      const nextPage = pages[i];
+
+      // fade-in animation untuk page 3 sahaja
+      if(i === 2){ // index page 3
+        nextPage.style.opacity = 0;
+        nextPage.classList.add('active');
+        nextPage.style.transition = "opacity 1s ease";
+        setTimeout(()=>{
+          nextPage.style.opacity = 1;
+        }, 50); // delay sikit supaya browser detect transition
+      } else {
+        nextPage.classList.add('active');
+      }
+    }
+  }, 800);
+}
+
+
+
+function reset(){
+  pages[i].classList.remove('active');
+  i = 0;
+  document.body.classList.remove('light');
+  pages[i].classList.add('active');
+  document.querySelector('.confetti').innerHTML='';
+}
+
+function startConfetti(){
+  const box=document.querySelector('.confetti');
+  box.innerHTML=''; // clear first
+  for(let j=0;j<60;j++){
+    let c=document.createElement('span');
+    c.style.left=Math.random()*100+'%';
+    c.style.animationDelay=Math.random()*5+'s';
+    box.appendChild(c);
+  }
+}
+</script>
+
+
+</body>
+</html>
