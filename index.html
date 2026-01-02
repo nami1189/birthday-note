@@ -184,28 +184,27 @@ function next(){
     pages[i].classList.add('active');
   }
 }
-
+    
 function openGift(){
-  // play audio
   audio.play().catch(()=>{});
 
   const gift = pages[i].querySelector('.sticker');
-  const rect = gift.getBoundingClientRect();
 
+  // Gift pop
   gift.style.transition = "transform 0.6s ease";
   gift.style.transform = "scale(1.2)";
   setTimeout(()=>gift.style.transform="scale(1)",600);
 
-  // set radial origin
-  document.body.style.setProperty('--gift-x', rect.left + rect.width/2 + 'px');
-  document.body.style.setProperty('--gift-y', rect.top + rect.height/2 + 'px');
-
-  // FADE PAGE 2
-  pages[i].style.transition="opacity 0.8s ease";
+  // Fade PAGE 2 dulu
+  pages[i].style.transition="opacity 1s ease";
   pages[i].style.opacity=0;
 
-  document.body.classList.add('light');
+  // Background fade AFTER page start fade
+  setTimeout(()=>{
+    document.body.classList.add('light');
+  },300);
 
+  // Switch page
   setTimeout(()=>{
     pages[i].classList.remove('active');
     pages[i].style.opacity=1;
@@ -214,10 +213,10 @@ function openGift(){
     if(i<pages.length){
       pages[i].style.opacity=0;
       pages[i].classList.add('active');
-      pages[i].style.transition="opacity 1s ease";
+      pages[i].style.transition="opacity 1.2s ease";
       setTimeout(()=>pages[i].style.opacity=1,50);
     }
-  },800);
+  },1000);
 }
 
 
@@ -245,6 +244,7 @@ function startConfetti(){
 
 </body>
 </html>
+
 
 
 
