@@ -105,6 +105,27 @@ button{
         transform:translateY(110vh) rotate(360deg);
     }
 }
+
+.sticker-frame{
+    width:180px;
+    height:180px;
+    margin:0 auto 20px auto;
+    border:4px solid #9adfc2;
+    border-radius:30px;
+    overflow:hidden;
+    box-shadow:0 8px 15px rgba(0,0,0,0.2);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:#fff; /* optional, kalau gambar ada transparency */
+}
+
+.sticker-frame img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+}
 </style>
 </head>
 
@@ -145,9 +166,11 @@ button{
 
 <!-- PAGE 4 -->
 <div class="page">
-  <div class="sticker">💌</div>
+  <div class="sticker-frame">
+    <img src="page4.jpg" alt="Cute Image">
+  </div>
   <div class="text">
-   ayat
+    ayat
   </div>
   <button onclick="next()">Next</button>
 </div>
@@ -253,6 +276,7 @@ function startConfetti(){
 
 </body>
 </html>
+
 
 
 
