@@ -25,6 +25,32 @@ body.light{
     color:#234;
 }
 
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background:radial-gradient(
+        circle at var(--gift-x,50%) var(--gift-y,50%),
+        rgba(223,245,234,0) 0%,
+        rgba(223,245,234,0) 35%,
+        rgba(223,245,234,1) 100%
+    );
+    opacity:0;
+    pointer-events:none;
+    transition:opacity 1.8s ease;
+    z-index:-1;
+}
+
+/* bila gift dibuka */
+body.light::before{
+    opacity:1;
+}
+
+/* slow global transition */
+body{
+    transition:background 2.5s ease, color 2s ease;
+}
+
 .page{
     display:none;
     height:100vh;
@@ -166,6 +192,20 @@ function openGift(){
   // mainkan audio
   audio.play().catch(()=>console.log("Audio play blocked"));
 
+    // dapatkan posisi gift
+const gift = pages[i].querySelector('.sticker');
+const rect = gift.getBoundingClientRect();
+
+// set titik radial ikut gift
+document.body.style.setProperty(
+  '--gift-x',
+  rect.left + rect.width / 2 + 'px'
+);
+document.body.style.setProperty(
+  '--gift-y',
+  rect.top + rect.height / 2 + 'px'
+);
+
   // tukar background + glow
   document.body.classList.add('light');
 
@@ -225,4 +265,5 @@ function startConfetti(){
 
 </body>
 </html>
+
 
