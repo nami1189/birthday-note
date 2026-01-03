@@ -140,7 +140,11 @@ button{
     animation:float 2.5s ease-in-out infinite;
 }
 
-    
+.nope{
+  position:relative;
+  transition:transform 0.2s ease;
+}
+
 </style>
 </head>
 
@@ -166,10 +170,41 @@ button{
 <div class="page">
   <div class="sticker">🎁</div>
   <h2>I have something for you</h2>
-  <button onclick="openGift()">Buka</button>
+  <button onclick="next()">Open Me!</button>
 </div>
 
 <!-- PAGE 3 -->
+<div class="page">
+  <div class="sticker">🎁</div>
+  <h2>Tapi ayang sayang kite tak?</h2>
+  <button onclick="next()">Sayangg</button>
+  <button class="nope" onmouseover="run(this)" ontouchstart="run(this)">Tak</button>
+</div>
+
+<!-- PAGE 4 -->
+<div class="page">
+  <div class="sticker">🎁</div>
+  <h2>yeke?</h2>
+  <button onclick="next()">IYAA</button>
+  <button class="nope" onmouseover="run(this)" ontouchstart="run(this)">Tak sayang</button>
+</div>
+
+<!-- PAGE 4 -->
+<div class="page">
+  <div class="sticker">🎁</div>
+  <h2>confirm?</h2>
+  <button onclick="next()">CONFIRM 100%</button>
+  <button class="nope" onmouseover="run(this)" ontouchstart="run(this)">Tak</button>
+</div>
+
+<!-- PAGE 5 -->
+<div class="page">
+  <div class="sticker">🎁</div>
+  <h2>yeeeyyy nah hadiah</h2>
+  <button onclick="openGift()">Buka</button>
+</div>
+    
+<!-- PAGE 6 -->
 <div class="page">
   <div class="sticker">🎂</div>
   <h2>HAPPY BIRTHDAY </h2>
@@ -179,7 +214,7 @@ button{
   <button onclick="next()">Next</button>
 </div>
 
-<!-- PAGE 4 -->
+<!-- PAGE 7 -->
 <div class="page">
   <div class="sticker-frame">
     <img src="page4.jpg" alt="Cute Image">
@@ -190,7 +225,7 @@ button{
   <button onclick="next()">Next</button>
 </div>
 
-<!-- PAGE 5 -->
+<!-- PAGE 8 -->
 <div class="page">
   <div class="sticker-frame">
     <video src="VID_20260103_013754.mp4" autoplay muted loop playsinline></video>
@@ -201,7 +236,7 @@ button{
   <button onclick="next()">Next</button>
 </div>
 
-<!-- PAGE 6 -->
+<!-- PAGE 9 -->
 <div class="page">
   <div class="sticker-frame">
     <img src="IMG-20251226-WA0005.jpg" alt="Cute Image">
@@ -212,7 +247,7 @@ button{
   <button onclick="next()">Next</button>
 </div>
 
-<!-- PAGE 7 -->
+<!-- PAGE 10 -->
 <div class="page">
   <div class="sticker">💖🎂</div>
   <div class="text">
@@ -246,7 +281,7 @@ function openGift(){
   gift.style.transform = "scale(1.2)";
   setTimeout(()=>gift.style.transform="scale(1)",600);
 
-  // Fade PAGE 2 dulu
+  // Fade PAGE 5 dulu
   pages[i].style.transition="opacity 1s ease";
   pages[i].style.opacity=0;
 
@@ -290,11 +325,19 @@ function startConfetti(){
     box.appendChild(c);
   }
 }
+
+function run(btn){
+  const x = Math.random()*200 - 100; // kiri kanan
+  const y = Math.random()*200 - 100; // atas bawah
+  btn.style.transform = `translate(${x}px, ${y}px)`;
+}
+
 </script>
 
 
 </body>
 </html>
+
 
 
 
