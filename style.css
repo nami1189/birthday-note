@@ -128,7 +128,7 @@ button .no-btn{
 
 .gif{
     margin-bottom: 65px;
-    {
+}
 
 .sticker{
     font-size:90px;
@@ -192,6 +192,7 @@ button .no-btn{
     button { padding: 12px 30px; font-size: 15px; }
     .sticker-frame { width: 80vw; height: 80vw; }
 }
+
 
 
 
