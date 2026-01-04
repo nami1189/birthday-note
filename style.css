@@ -1,0 +1,143 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    position:relative;
+    height:100vh;
+    background:#0f1f1a;
+    color:white;
+    overflow:hidden;
+    
+}
+    
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background:linear-gradient(135deg,#dff5ea,#f6fffb);
+    color:#0f1f1a;
+    opacity:0;
+    transition:opacity 2s ease;
+    pointer-events:none;
+    z-index:0;
+}
+
+body.light::before{
+    opacity:1;
+}
+body.light{
+    color:#234;
+}
+
+/* slow global transition */
+body{
+    transition:background 2.5s ease, color 2s ease;
+}
+
+.page{
+    position:relative;
+    z-index:1;
+    display:none;
+    height:100vh;
+    padding:30px;
+    text-align:center;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+}
+
+.page.active{
+    display:flex;
+}
+
+.sticker{
+    font-size:90px;
+    animation:float 2.5s ease-in-out infinite;
+}
+
+@keyframes float{
+    0%{transform:translateY(0);}
+    50%{transform:translateY(-20px);}
+    100%{transform:translateY(0);}
+}
+
+button .no-btn{
+    position: absolute;
+}
+
+button{
+    margin-top:25px;
+    padding:12px 35px;
+    border:none;
+    border-radius:30px;
+    background:#9adfc2;
+    color:#144;
+    font-size:16px;
+    cursor:pointer;
+}
+
+.confetti{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:2; /* atas semua pages */
+}
+
+.confetti span{
+    position:absolute;
+    width:8px;
+    height:8px;
+    background:#9adfc2;
+    top:-10px;
+    animation:fall 5s linear infinite;
+    opacity:0.7;
+}
+
+@keyframes fall{
+    to{
+        transform:translateY(110vh) rotate(360deg);
+    }
+}
+
+.sticker-frame{
+    width:180px;
+    height:180px;
+    margin:0 auto 20px auto;
+    border:4px solid #9adfc2;
+    border-radius:30px;
+    overflow:hidden;
+    box-shadow:0 8px 15px rgba(0,0,0,0.2);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:#fff; 
+}
+
+.sticker-frame img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+}
+
+    
+.sticker-frame video{
+    width:100%;
+    height:100%;
+    object-fit:cover; /* pastikan video penuh frame */
+    display:block;
+}
+    
+
+.sticker-frame{
+    animation:float 2.5s ease-in-out infinite;
+}
+
+.nope{
+  position:relative;
+  transition:transform 0.2s ease;
+}
