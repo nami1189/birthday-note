@@ -85,7 +85,7 @@ h2{
 }
 
 button{
-    margin: 15px 10px;
+    margin: 25px 10px;
     padding: 20px 45px; 
     border:none;
     border-radius:40px;
@@ -125,6 +125,10 @@ button .no-btn{
         transform:translateY(110vh) rotate(360deg);
     }
 }
+
+.gif{
+    margin-bottom: 35px;
+    {
 
 .sticker{
     font-size:90px;
@@ -188,3 +192,4 @@ button .no-btn{
     button { padding: 12px 30px; font-size: 15px; }
     .sticker-frame { width: 80vw; height: 80vw; }
 }
+
