@@ -1,4 +1,4 @@
-r*{
+*{
     margin:0;
     padding:0;
     box-sizing:border-box;
@@ -192,6 +192,7 @@ button .no-btn{
     button { padding: 12px 30px; font-size: 15px; }
     .sticker-frame { width: 80vw; height: 80vw; }
 }
+
 
 
 
