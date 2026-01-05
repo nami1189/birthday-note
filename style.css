@@ -60,7 +60,9 @@ h2{
     padding-bottom:30px;
     width:100%;
     max-width:650px;
-    margin:0 auto;
+    margin:20px auto;
+    padding-left:15px;
+    padding-right:15px;
     text-align:center;
     flex-direction:column;
     justify-content:flex-start;
@@ -237,3 +239,4 @@ button .no-btn{
     }
 
 }
+
