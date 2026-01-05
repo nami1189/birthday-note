@@ -100,9 +100,7 @@ button .no-btn{
     position: absolute;
 }
 
-.page button:last-of-type{
-    margin-bottom: 40px;
-}
+
 
 .confetti{
     position:fixed;
@@ -220,6 +218,7 @@ button .no-btn{
         justify-content:flex-start;
     }
 }
+
 
 
 
