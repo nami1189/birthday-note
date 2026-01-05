@@ -7,10 +7,10 @@
 
 body{
     position:relative;
-    height:100vh;
+    min-height:100vh;
     background:#0f1f1a;
     color:white;
-    overflow:hidden;
+    overflow-y:auto;
     transition:background 2.5s ease, color 2s ease;
 }
     
@@ -54,15 +54,16 @@ h2{
     position:relative;
     z-index:1;
     display:none;
-    height:100vh;
+    /* height:100vh; */
     min-height: 100vh;
-    padding:30px;
+    padding-top:30px;
+    padding-bottom:30px;
     width: 100%;
     max-width: 650px; 
     margin: 0 auto;
     text-align:center;
     flex-direction:column;
-    justify-content:center;
+    justify-content:flex-start;
     align-items:center;
 }
 
@@ -97,6 +98,10 @@ button{
 
 button .no-btn{
     position: absolute;
+}
+
+.page button:last-of-type{
+    margin-bottom: 40px;
 }
 
 .confetti{
@@ -188,12 +193,15 @@ button .no-btn{
     h1 { font-size: 1.5rem; }
     h2 { font-size: 1.5rem; }
     .text { font-size: 1rem; }
-    button { padding: 12px 15px; margin: 20px 5px; font-size: 16px; }
+    button { padding: 12px 15px; margin: 20px 10px; font-size: 16px; }
     .sticker-frame { width: 90vw; height: 90vw; }
     .gif{
         margin-top: 10px;
         margin-bottom: 15px;
         max-width:300px;
+    }
+    .page{
+        justify-content:flex-start;
     }
 }
 
@@ -201,14 +209,18 @@ button .no-btn{
     h1 { font-size: 1.5rem; }
     h2 { font-size: 1.5rem; }
     .text { font-size: 1rem; }
-    button { padding: 12px 15px; margin: 20px 5px; font-size: 15px; }
+    button { padding: 12px 15px; margin: 20px 10px; font-size: 15px; }
     .sticker-frame { width: 80vw; height: 80vw; }
     .gif{
         margin-top: 10px;
         margin-bottom: 15px;
         max-width:300px;
     }
+    .page{
+        justify-content:flex-start;
+    }
 }
+
 
 
 
